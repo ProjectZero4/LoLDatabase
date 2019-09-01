@@ -6,7 +6,7 @@
  * Time: 10:38
  */
 
-namespace ProjectZero\LolDatabase;
+namespace ProjectZero\LoLDatabase;
 
 
 use Carbon\Carbon;
