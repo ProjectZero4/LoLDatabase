@@ -56,7 +56,7 @@ use Throwable;
  * Class YourOrange
  * @package App
  */
-class YourOrange
+class LoLDatabase
 {
     /**
      *
@@ -215,9 +215,9 @@ class YourOrange
     public function leagueBySummonerAll(Summoner $summoner): LeagueCollection
     {
         $collection = new LeagueCollection;
-        $solo = $this->leagueBySummoner($summoner, YourOrange::RANKED_SOLO_5x5);
-        $flexSR = $this->leagueBySummoner($summoner, YourOrange::RANKED_FLEX_SR);
-        $flexTT = $this->leagueBySummoner($summoner, YourOrange::RANKED_FLEX_TT);
+        $solo = $this->leagueBySummoner($summoner, LoLDatabase::RANKED_SOLO_5x5);
+        $flexSR = $this->leagueBySummoner($summoner, LoLDatabase::RANKED_FLEX_SR);
+        $flexTT = $this->leagueBySummoner($summoner, LoLDatabase::RANKED_FLEX_TT);
         if ($solo) {
             $collection->push($solo);
         }
@@ -241,7 +241,7 @@ class YourOrange
      * @param string $type
      * @return League
      */
-    public function leagueBySummoner(Summoner $summoner, $type = YourOrange::RANKED_SOLO_5x5)
+    public function leagueBySummoner(Summoner $summoner, $type = LoLDatabase::RANKED_SOLO_5x5)
     {
         /**
          * @var League $league
@@ -581,14 +581,6 @@ class YourOrange
     {
         $this->region = $this->yourRegion->getRegionName($region);
         $this->queryApi('setRegion', $this->region);
-    }
-
-    /**
-     * @param RateLimitInterface $rateLimitProvider
-     */
-    public function addRateLimitProvider(RateLimitInterface $rateLimitProvider)
-    {
-        $this->rateLimitProvider = $rateLimitProvider;
     }
 
     /**

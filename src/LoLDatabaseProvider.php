@@ -28,7 +28,7 @@ class LoLDatabaseProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(YourOrange::class, function () {
+        $this->app->singleton(LoLDatabase::class, function () {
             $api_provider = new LeagueAPI([
                 LeagueAPI::SET_KEY => env('RIOT_API_KEY'),
                 LeagueAPI::SET_REGION => YourRegion::EUROPE_WEST
@@ -36,17 +36,7 @@ class LoLDatabaseProvider extends ServiceProvider
             $request = app(Request::class);
             $region = $request->route('region') ?: YourRegion::EUROPE_WEST;
             try {
-                $api = new YourOrange($api_provider, $region);
-                if (env('RIOT_API_USE_INTERNAL_RATE_LIMIT')) {
-                    $api->addRateLimitProvider(new YourRateLimit([
-                        'max' => env('RIOT_API_RATE_LIMIT'),
-                        'duration' => env('RIOT_API_RATE_LIMIT_DURATION'),
-                        'buffer' => env('RIOT_API_RATE_LIMIT_BUFFER'),
-                        'wait' => env('RIOT_API_RATE_LIMIT_AUTO_WAIT'),
-                        'autoCount' => env('RIOT_API_RATE_LIMIT_AUTO_COUNT'),
-                        'verbose' => env('RIOT_API_RATE_LIMIT_VERBOSE', false),
-                    ]));
-                }
+                $api = new LoLDatabase($api_provider, $region);
             } catch (Exception $e) {
                 abort(500, 'The region you specified (' . $region . ') is not valid.');
             }
