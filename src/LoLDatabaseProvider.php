@@ -5,6 +5,7 @@ namespace ProjectZero\LoLDatabase;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
+use ProjectZero\LoLDatabase\Commands\Update;
 use RiotAPI\LeagueAPI\LeagueAPI;
 
 class LoLDatabaseProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class LoLDatabaseProvider extends ServiceProvider
         //
         $this->loadRoutesFrom(__DIR__ . "/web.php");
         $this->loadMigrationsFrom(__DIR__ . "migrations");
+        $this->commands([Update::class]);
     }
 
     /**

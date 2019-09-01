@@ -15,7 +15,7 @@ class Update extends Command
      *
      * @var string
      */
-    protected $signature = 'yourOrange:update {--registered=false} {--season=}';
+    protected $signature = 'LoLDatabase:update {--registered=false} {--season=}';
 
     /**
      * The console command description.
