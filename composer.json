@@ -1,0 +1,30 @@
+{
+    "name": "projectzero/loldatabase",
+    "description": "An API wrapper for Riot Games League of Legends that stores and caches the data retrieved in a database format.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Josh Capener",
+            "email": "josh@joshcapener.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "dolejska-daniel/riot-api": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "ProjectZero\\LoLDatabase\\": "packages/projectzero/loldatabase/src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ProjectZero\\LoLDatabase\\LoLDatabaseProvider"
+            ],
+            "aliases": {
+            }
+        }
+    }
+}
