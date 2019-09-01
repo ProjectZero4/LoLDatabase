@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Providers;
+namespace ProjectZero\LoLDatabase;
 
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
-use ProjectZero\LoLDatabase\YourOrange;
-use ProjectZero\LoLDatabase\YourRateLimit;
-use ProjectZero\LoLDatabase\YourRegion;
 use RiotAPI\LeagueAPI\LeagueAPI;
 
 class LoLDatabaseProvider extends ServiceProvider
