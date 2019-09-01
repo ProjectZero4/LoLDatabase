@@ -3,7 +3,7 @@
 namespace ProjectZero\LoLDatabase\Commands;
 
 use Illuminate\Console\Command;
-use ProjectZero\LolDatabase\LoLDatabase;
+use ProjectZero\LoLDatabase\LoLDatabase;
 use ProjectZero\LoLDatabase\Models\Summoner;
 use ProjectZero\LoLDatabase\Models\SummonerRegistry;
 use Throwable;
