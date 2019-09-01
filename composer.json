@@ -10,7 +10,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "laravel/laravel": "*",
         "dolejska-daniel/riot-api": "*"
     },
     "autoload": {
