@@ -11,8 +11,15 @@ namespace ProjectZero\LoLDatabase\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Base extends Model
+abstract class Base extends Model
 {
+    /**
+     * You can define the settings for this in config/loldatabase.php
+     *
+     * @var string
+     */
+    protected $connection = "loldatabase";
+
     /**
      * Amount of seconds that need to pass for the cache to be updated
      *
