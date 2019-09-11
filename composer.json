@@ -10,7 +10,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "dolejska-daniel/riot-api": "*"
+        "dolejska-daniel/riot-api": "*",
+        "laravel/laravel": "*"
     },
     "autoload": {
         "psr-4": {

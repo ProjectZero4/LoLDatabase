@@ -8,10 +8,10 @@
 
 namespace ProjectZero\LoLDatabase\Models;
 
-use App\YourOrange;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\DB;
+use ProjectZero\LoLDatabase\LoLDatabase;
 
 /**
  * Class Summoner
@@ -65,59 +65,12 @@ class Summoner extends Base
     }
 
     /**
-     * @param YourOrange $api
+     * @param LoLDatabase $api
      * @return League
      */
-    public function highestLeague(YourOrange $api)
+    public function highestLeague(LoLDatabase $api)
     {
         return $api->leagueBySummonerAll($this)->getHighestLeague();
     }
 
-    /**
-     * @return HasMany
-     */
-    public function soloMatches()
-    {
-        return $this->hasMany(SummonerMatch::class, 'accountId', 'accountId')->where('queue', DB::raw(420));
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function flexSRMatches()
-    {
-        return $this->hasMany(SummonerMatch::class, 'accountId', 'accountId')->where('queue', DB::raw(440));
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function flexTTMatches()
-    {
-        return $this->hasMany(SummonerMatch::class, 'accountId', 'accountId')->where('queue', DB::raw(470));
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function normalDraftMatches()
-    {
-        return $this->hasMany(SummonerMatch::class, 'accountId', 'accountId')->where('queue', DB::raw(400));
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function normalBlindMatches()
-    {
-        return $this->hasMany(SummonerMatch::class, 'accountId', 'accountId')->where('queue', DB::raw(430));
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function aramMatches()
-    {
-        return $this->hasMany(SummonerMatch::class, 'accountId', 'accountId')->where('queue', DB::raw(450));
-    }
 }
