@@ -18,7 +18,7 @@ class LoLDatabaseProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . "/web.php");
-        $this->loadMigrationsFrom(__DIR__ . "migrations");
+        $this->loadMigrationsFrom(__DIR__ . "/migrations");
         $this->commands([Update::class]);
         $this->publishes([__DIR__ . '/config/loldatabase.php' => config_path('loldatabase.php')]);
         if (file_exists(config_path('loldatabase.php'))) {
