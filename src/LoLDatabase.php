@@ -537,7 +537,7 @@ class LoLDatabase
      */
     public function itemIcon($id)
     {
-        return DataDragonAPI::getItemIconUrl($id);
+        return $id === 0 ? 'http://raw.communitydragon.org/latest/game/data/images/emptyicon.png' : DataDragonAPI::getItemIconUrl($id);
     }
 
     /**
